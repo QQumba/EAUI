@@ -1,0 +1,61 @@
+@import '/src/global.scss';
+
+$marker-size: 5px;
+$marker-radius: $marker-size - 1px;
+$marker-background-h: linear-gradient(
+  90deg,
+  rgba(255, 115, 0, 1) 0%,
+  rgba(217, 91, 121, 1) 100%
+);
+$marker-background-v: linear-gradient(
+  0deg,
+  rgba(255, 115, 0, 1) 0%,
+  rgba(217, 91, 121, 1) 100%
+);
+$marker-background-color: rgb(35, 214, 169);
+
+.card {
+  border-radius: $marker-radius;
+  box-shadow: 0 0.1em 0.5em 0 rgb(233, 233, 233);
+  border: 1px solid rgb(235, 235, 235);
+
+  display: inline-block;
+  position: relative;
+
+  .content {
+    padding: $ea-padding;
+  }
+}
+
+@mixin marker {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+}
+
+.marker-left {
+  padding-left: $marker-radius;
+  
+  ::after {
+    @include marker;
+    border-top-left-radius: $marker-radius;
+    border-bottom-left-radius: $marker-radius;
+    height: calc(100% + 2px);
+    width: $marker-size;
+    background: $marker-background-v;
+  }
+}
+
+.marker-top {
+  padding-top: $marker-radius;
+
+  ::after {
+    @include marker;
+    border-top-left-radius: $marker-radius;
+    border-top-right-radius: $marker-radius;
+    width: calc(100% + 2px);
+    height: $marker-size;
+    background: $marker-background-h;
+  }
+}
