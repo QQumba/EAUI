@@ -1,13 +1,6 @@
 <div
   class="card"
-  [ngClass]="{
-    'marker-left': marker == 'left',
-    'marker-top': marker == 'top'
-  }"
+  [ngClass]="{ 'marker-left': marker == 'left', 'marker-top': marker == 'top' }"
 >
-  <div class="header content">header</div>
   <ng-content></ng-content>
-  <div class="content">
-    content content content content content content content
-  </div>
 </div>
